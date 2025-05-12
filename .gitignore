@@ -1,0 +1,39 @@
+.DS_Store
+# Ignore all build artifacts
+bin/
+obj/
+*.dll
+*.exe
+
+# Ignore IDE-specific files
+.vs/
+.idea/
+*.suo
+*.user
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.pidb
+
+# Ignore environment-specific settings
+.env
+appsettings.Development.json
+
+# Ignore dependency caches
+node_modules/
+packages/
+!packages/build/
+
+# Ignore coverage reports
+*.coverage
+*.coveragexml
+TestResults/
+
+# Ignore Docker files (if using containers)
+docker-compose.override.yml
+
+# Ignore personal files
+*.bak
+Thumbs.db
+Desktop.ini
