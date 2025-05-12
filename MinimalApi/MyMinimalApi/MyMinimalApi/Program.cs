@@ -23,5 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-app.MapBookEndpoints(); //Extension
+app.MapBookEndpoints(); //Map endpoints using extension for organision
+app.MapGet("/", () => "Hello World!"); //Map explictly in program.cs
 app.Run();

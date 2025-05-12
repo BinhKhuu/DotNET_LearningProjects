@@ -1,7 +1,10 @@
 @MyMinimalApi_HostAddress = http://localhost:5250
 
-###
+### Hello world
+GET {{MyMinimalApi_HostAddress}}/
+
+### get books
 GET {{MyMinimalApi_HostAddress}}/books
 
-###
+### get books by id
 GET {{MyMinimalApi_HostAddress}}/books/1
