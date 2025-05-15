@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.OpenApi.Models;
+using MyMinimalApi.Filters;
 using MyMinimalApi.Models;
 using MyMinimalApi.Services;
 
@@ -38,5 +39,7 @@ public static class BooksApi
                         new OpenApiTag { Name = "Amy's Library" } 
                     }
                 });
+
+        books.AddEndpointFilter(new TimeStampFilter());
     }
 }
