@@ -8,7 +8,8 @@
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-
+<button class="btn btn-primary" @onclick="CallApi">Call Api</button>
+@inject IHttpClientFactory ClientFactory
 @code {
     private int currentCount = 0;
 
@@ -16,5 +17,33 @@
     {
         currentCount++;
     }
+
+    private async Task CallApi()
+    {
+        try
+        {
+            var httpClient = ClientFactory.CreateClient("AuthClient");
+            var result = await httpClient.GetStringAsync("api/weatherforecasts");
+            if (!String.IsNullOrWhiteSpace(result))
+            {
+                Console.WriteLine("Fetched Successfully");
+            }
+
+            var unAuthHttpClient = ClientFactory.CreateClient("UnAuthClient");
+
+            var unAuthResult = await unAuthHttpClient.GetStringAsync("api/weatherforecasts");
+            if (!String.IsNullOrWhiteSpace(unAuthResult))
+            {
+                Console.WriteLine("Console return result is login page");
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
 
 }

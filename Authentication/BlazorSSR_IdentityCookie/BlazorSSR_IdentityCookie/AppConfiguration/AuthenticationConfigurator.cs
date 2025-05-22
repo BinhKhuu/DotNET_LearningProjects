@@ -15,9 +15,13 @@ public class AuthenticationConfigurator
             })
             .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
         
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+            options.SlidingExpiration = true;
+            options.LogoutPath = "/Account/Logout";
+        });
+
         builder.Services.AddAuthorizationCore();
     }
-    
-    
-   
 }

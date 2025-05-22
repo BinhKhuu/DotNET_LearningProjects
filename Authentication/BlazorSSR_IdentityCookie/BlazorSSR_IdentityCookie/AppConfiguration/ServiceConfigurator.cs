@@ -1,5 +1,6 @@
 using BlazorSSR_IdentityCookie.Components.Account;
 using BlazorSSR_IdentityCookie.Data;
+using BlazorSSR_IdentityCookie.Middleware;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -30,5 +31,15 @@ public class ServiceConfigurator
             .AddDefaultTokenProviders();
 
         builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+        builder.Services.AddTransient<CookieHandler>();
+
+        
+        builder.Services.AddHttpClient(
+                "AuthClient",
+                opt => opt.BaseAddress = new Uri("http://localhost:5284"))
+            .AddHttpMessageHandler<CookieHandler>();
+        builder.Services.AddHttpClient(
+            "UnAuthClient",
+            opt => opt.BaseAddress = new Uri("http://localhost:5284"));
     }
 }
