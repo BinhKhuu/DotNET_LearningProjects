@@ -11,7 +11,7 @@ public class ServiceConfigurator
 {
     public static void Configure(WebApplicationBuilder builder)
     {
-// Add services to the container.
+        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
 
@@ -32,14 +32,5 @@ public class ServiceConfigurator
 
         builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
         builder.Services.AddTransient<CookieHandler>();
-
-        
-        builder.Services.AddHttpClient(
-                "AuthClient",
-                opt => opt.BaseAddress = new Uri("http://localhost:5284"))
-            .AddHttpMessageHandler<CookieHandler>();
-        builder.Services.AddHttpClient(
-            "UnAuthClient",
-            opt => opt.BaseAddress = new Uri("http://localhost:5284"));
     }
 }

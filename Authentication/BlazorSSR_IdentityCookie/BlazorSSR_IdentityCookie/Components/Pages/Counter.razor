@@ -36,7 +36,23 @@
             {
                 Console.WriteLine("Console return result is login page");
             }
-
+            // When using localhost you will be redirected to the authentication page unless webapi is configured to handle aunthorized request differently
+            // When using a subdomain cookies can be shared once configured
+            var webApiAuthClient = ClientFactory.CreateClient("WebApiAuthClient");
+            var webApiResult = await webApiAuthClient.GetStringAsync("api/weatherforecast");
+            if (!String.IsNullOrWhiteSpace(webApiResult))
+            {
+                Console.WriteLine("Fetch from Webapi successful");
+            }
+            
+            // When using localhost you will be redirected to the authentication page unless webapi is configured to handle aunthorized request differently
+            var webApiUnAuthClient = ClientFactory.CreateClient("WebApiUnAuthClient");
+            var webApiUnResult = await webApiUnAuthClient.GetStringAsync("api/weatherforecast");
+            if (!String.IsNullOrWhiteSpace(webApiUnResult))
+            {
+                Console.WriteLine("Fetch from Webapi successful");
+            }
+            
 
         }
         catch (Exception ex)

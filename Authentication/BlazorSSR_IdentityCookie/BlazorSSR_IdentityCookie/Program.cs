@@ -2,6 +2,7 @@ using BlazorSSR_IdentityCookie.AppConfiguration;
 
 var builder = WebApplication.CreateBuilder(args);
 ServiceConfigurator.Configure(builder);
+HttpClientConfigurator.Configure(builder);
 AuthenticationConfigurator.Configure(builder);
 
 var app = builder.Build();
