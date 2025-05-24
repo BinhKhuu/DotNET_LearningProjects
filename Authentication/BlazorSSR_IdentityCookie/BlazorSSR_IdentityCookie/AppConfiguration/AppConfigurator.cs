@@ -24,5 +24,6 @@ public class AppConfigurator
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();
         app.MapAdditionalIdentityEndpoints();
+        
     }
 }

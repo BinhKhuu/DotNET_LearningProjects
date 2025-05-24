@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using System.Text.Json;
+using Azure;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Primitives;
 using BlazorSSR_IdentityCookie.Components.Account.Pages;
 using BlazorSSR_IdentityCookie.Components.Account.Pages.Manage;
 using BlazorSSR_IdentityCookie.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace Microsoft.AspNetCore.Routing;
 
@@ -43,11 +46,15 @@ internal static class IdentityComponentsEndpointRouteBuilderExtensions
         });
 
         accountGroup.MapPost("/Logout", async (
+            HttpContext context,
             ClaimsPrincipal user,
             [FromServices] SignInManager<ApplicationUser> signInManager,
             [FromForm] string returnUrl) =>
         {
-            await signInManager.SignOutAsync();
+            await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await context.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
+            await context.SignOutAsync("Cookies");
+            context.Response.Cookies.Delete(".AspNetCore.Identity.Application");
             return TypedResults.LocalRedirect($"~/{returnUrl}");
         });
 

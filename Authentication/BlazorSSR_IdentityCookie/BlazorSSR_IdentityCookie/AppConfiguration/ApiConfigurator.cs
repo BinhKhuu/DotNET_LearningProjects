@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication;
+
 namespace BlazorSSR_IdentityCookie.AppConfiguration;
 
 public class ApiConfigurator
@@ -23,6 +25,12 @@ public class ApiConfigurator
                 return forecast;
             })
             .RequireAuthorization();
+
+        app.MapPost("Account/Logout", (context =>
+        {
+            context.SignOutAsync();
+            return Task.CompletedTask;
+        }));
     }
     record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
     {

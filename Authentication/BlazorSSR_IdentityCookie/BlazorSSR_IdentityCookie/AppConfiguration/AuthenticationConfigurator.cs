@@ -17,8 +17,8 @@ public class AuthenticationConfigurator
         
         builder.Services.ConfigureApplicationCookie(options =>
         {
-            options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-            options.SlidingExpiration = true;
+            options.ExpireTimeSpan = TimeSpan.FromSeconds(1);
+            options.SlidingExpiration = false;
             options.LogoutPath = "/Account/Logout";
         });
 
