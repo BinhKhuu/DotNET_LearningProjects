@@ -1,11 +1,13 @@
 
 # Project
-Learning about Cookie and Jwt Authentication and authorisation
-Project uses Cookie Authentication to protect static assets and JwtBearer Authorization on the api's
-SPA app is served from /dist folder
-Currently not configured for localhost proxying to SPA 
-Uses MSAL to log user in and attach bearer token to http request
+* Learning about Cookie and Jwt Authentication and authorisation
+* Project uses Cookie Authentication to protect static assets and JwtBearer Authorization on the api's
+* SPA app is served from /dist folder
+* Currently not configured for localhost proxying to SPA 
+* Uses MSAL to log user in and attach bearer token to http request
 
+## todo 
+1. document angular setup with MSAL
 
 ## WebAPI packages
 
