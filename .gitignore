@@ -21,9 +21,11 @@ logs/
 appsettings.Development.json
 
 # Ignore dependency caches
+.angular
 node_modules/
 packages/
 !packages/build/
+.vscode
 
 # Ignore coverage reports
 *.coverage

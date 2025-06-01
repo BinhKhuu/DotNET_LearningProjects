@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_CookieJWTAuth", "CookieAndJWT_MainSolution\API_CookieJWTAuth\API_CookieJWTAuth.csproj", "{5C8C07E5-BE08-4A5F-BD6A-869274A7CCFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C8C07E5-BE08-4A5F-BD6A-869274A7CCFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8C07E5-BE08-4A5F-BD6A-869274A7CCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8C07E5-BE08-4A5F-BD6A-869274A7CCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8C07E5-BE08-4A5F-BD6A-869274A7CCFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
