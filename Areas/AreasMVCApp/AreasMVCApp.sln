@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreasMVCApp", "AreasMVCApp\AreasMVCApp.csproj", "{CF537DDF-A6EA-4C23-9DFA-2DA92B23E58E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF537DDF-A6EA-4C23-9DFA-2DA92B23E58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF537DDF-A6EA-4C23-9DFA-2DA92B23E58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF537DDF-A6EA-4C23-9DFA-2DA92B23E58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF537DDF-A6EA-4C23-9DFA-2DA92B23E58E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
