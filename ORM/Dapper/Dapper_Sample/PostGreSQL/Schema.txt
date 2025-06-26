@@ -1,0 +1,33 @@
+CREATE TYPE contract_type AS ENUM ('Mobile', 'TV', 'Broadband');
+CREATE TYPE tv_package_type AS ENUM ('S', 'M', 'L', 'XL');
+
+CREATE TABLE contracts (
+                           Id      SERIAL PRIMARY KEY,
+                           StartDate       DATE NOT NULL,
+                           DurationMonths  INT NOT NULL,
+                           Charge           DECIMAL(10, 2) NOT NULL,
+                           ContractType    contract_type NOT NULL,
+                           CustomerId      INT NOT NULL,
+
+    -- MobileContract-specific
+                           mobileNumber    TEXT,
+
+    -- TvContract-specific
+                           TVPackageType  tv_package_type,
+
+    -- BroadBandContract-specific
+                           DownloadSpeed   INT
+
+    -- Constraints
+);
+
+CREATE TABLE customers (
+                           Id   SERIAL PRIMARY KEY,
+                           Firstname     VARCHAR(100) NOT NULL,
+                           Lastname      VARCHAR(100) NOT NULL,
+                           Email          VARCHAR(255) UNIQUE NOT NULL,
+                           PhoneNumber   VARCHAR(20),
+                           DateOfBirth DATE,
+                           CreatedAt    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
